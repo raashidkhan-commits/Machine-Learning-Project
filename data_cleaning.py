@@ -8,7 +8,7 @@ from sklearn.compose import ColumnTransformer
 
 pd.set_option('display.max_columns', None)  # Show all columns
 
-data=pd.read_csv('Machine Learning Data.csv')
+data=pd.read_csv('machine_learning_data.csv')
 print (data.head())
 print (data.dtypes)
 print ('Correlation Matrix:\n',data.drop(columns='ocean_proximity').corr())
@@ -55,4 +55,4 @@ cleaned_data_array=full_pipeline_with_order.fit_transform(data)
 cleaned_data=pd.DataFrame(cleaned_data_array,columns=full_pipeline_with_order.get_feature_names_out())
 print (cleaned_data)
 
-cleaned_data.to_csv('Cleaned Data.csv',index=False)
+cleaned_data.to_csv('cleaned_data.csv',index=False)

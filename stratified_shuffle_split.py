@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
 
 pd.set_option('display.max_columns', None)  # Show all columns
-data=pd.DataFrame(pd.read_csv('Cleaned Data.csv'))
+data=pd.DataFrame(pd.read_csv('cleaned_data.csv'))
 print (data)
 
 split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
@@ -19,8 +19,8 @@ print ((strat_train_set['clean__new_income_category'].value_counts())/strat_test
 for set_ in (strat_train_set, strat_test_set):
     set_.drop("clean__new_income_category", axis=1, inplace=True)
 
-strat_train_set.to_csv('Stratified Train Set.csv')
-strat_test_set.to_csv('Stratified Test Set.csv')
+strat_train_set.to_csv('stratified_train_set.csv',index=False)
+strat_test_set.to_csv('stratified_test_set.csv',index=False)
 
 #Loaded  cleaned dataset
 #Used StratifiedShuffleSplit based on clean__new_income_category
