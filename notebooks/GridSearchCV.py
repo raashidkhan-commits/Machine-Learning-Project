@@ -22,7 +22,10 @@ grid_search=GridSearchCV(model, param_grid, cv=10,
                          return_train_score=True)
 grid_search.fit(X,y)
 
-
+feature_importances=grid_search.best_estimator_.feature_importances_
+sorted_features=sorted(zip(feature_importances,features),reverse=True)
+importance_df=pd.DataFrame(sorted_features,columns=['Importance', 'Feature Name'])
+print (importance_df)
 
 
 #now randomised search:
